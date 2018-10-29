@@ -1,14 +1,49 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="danger">
+    <button ion-button icon-only menuToggle (click)="openMenu()">
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>
-      Ionic Blank
+      Ionic Camera demo
     </ion-title>
   </ion-navbar>
 </ion-header>
 
+<ion-menu type="overlay" [content]="content">
+  <ion-toolbar color="dark">
+    <ion-title>Más demos</ion-title>
+  </ion-toolbar>
+  <ion-content>
+    <ion-list>
+      <br>
+      <br>
+      <br>
+      <br>
+      <button ion-item >Calendar</button>
+      <button ion-item (click)="llevame_a_mapa()">Google Maps</button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav id="nav" #content [root]="HomePage"></ion-nav>
+
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <img [src]="image" *ngIf="image" width="500" height="500">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-5>
+        <button ion-button icon-left block color="secondary" (click)="getPicture()">
+          <ion-icon name="camera"></ion-icon>
+          Tomar foto
+        </button>
+      </ion-col>
+      <ion-col col-2></ion-col>
+      <ion-col col-5>
+        <button ion-button icon-left block color="secondary" (click)="enviar()">
+          <ion-icon name="send"></ion-icon>
+          Enviar
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
